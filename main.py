@@ -3,7 +3,7 @@ import logging
 from telegram.ext import Updater,CommandHandler
 from urllib3.exceptions import ProtocolError
 import os
-import tweet_scrape as ts
+import tweet_scrape
 from dotenv import load_dotenv
 import time
 
@@ -11,7 +11,7 @@ load_dotenv("keys.env")
 API_TOKEN = str(os.getenv("TELEGRAM_BOT"))
 
 def startbot():
-    Twitter_stream =  ts.TweetBot()
+    Twitter_stream =  tweet_scrape.TweetBot()
     Twitter_stream.fetch_tweets()
 
 if __name__ == '__main__':
